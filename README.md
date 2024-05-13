@@ -51,11 +51,11 @@ mogi::dataset::XORDataset dataset;
 	Create a trainer.
 */
 ClassificationTrainer trainer(
-	&simpleModel,											// Train this model.
-	&dataset,												// On this dataset.
-	&dataset,												// Test on this dataset.
-	CostFunctionFactory(CostFunctionType::MeanSuareError),	// On BinaryCrossEntropyLoss
-	false);													// Dont use Cuda
+	&simpleModel,						// Train this model.
+	&dataset,						// On this dataset.
+	&dataset,						// Test on this dataset.
+	CostFunctionFactory(CostFunctionType::MeanSuareError),	// On MeanSquareError.
+	false);							// Dont use Cuda.
 
 // Create tesing function.
 auto testing = [&simpleModel, &dataset] {
