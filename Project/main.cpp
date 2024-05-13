@@ -40,8 +40,20 @@ int main(int argc, char* argv[])
 		std::cout << argv[i] << std::endl;
 	}
 
+	/*
+		Create a modell for XOR training.
+	*/
+	mogi::Model simpleModel;
+	simpleModel.AddLayer(std::make_shared<mogi::DenseLayer>(2, 3, mogi::Sigmoid(), mogi::Xavier(2, 3)));
+	simpleModel.AddLayer(std::make_shared<mogi::DenseLayer>(3, 1, mogi::Sigmoid(), mogi::Xavier(3, 1)));
 
-	App();
+	/*
+		Get an XOR dataset.
+	*/
+	mogi::dataset::XORDataset dataset;
+
+	
+
 
 	return 0;
 }
